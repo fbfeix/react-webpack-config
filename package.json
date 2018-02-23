@@ -31,5 +31,10 @@
     "style-loader": "^0.20.1",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
+  },
+  "license": "MIT",
+  "repository": {
+      "type": "git",
+      "url": "git@github.com:fbfeix/react-webpack-config.git"
   }
 }
