@@ -120,6 +120,16 @@ module.exports = function(outputDirectory = "./dist") {
     //   })
     // ],
     plugins: [
+      new HtmlWebpackPlugin({
+        template: require('html-webpack-template'),
+        title: "Development",
+        meta: [
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0'
+          }
+        ],
+      }),
       new webpack.DefinePlugin({
         "process.env": {
           NODE_ENV: JSON.stringify("production")

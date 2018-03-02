@@ -14,7 +14,14 @@ module.exports = function(outputDirectory = "./dist") {
     plugins: [
       new CleanWebpackPlugin(["dist"]),
       new HtmlWebpackPlugin({
-        title: "Development"
+        template: require('html-webpack-template'),
+        title: "Development",
+        meta: [
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0'
+          }
+        ],
       })
     ],
     output: {
