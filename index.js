@@ -1,7 +1,13 @@
 const process = require("process");
 
-const productionMode = process.env.NODE_ENV === "production";
+module.exports = function createConfig(outputDirectory) {
 
-module.exports = productionMode
-  ? require("./src/production.config")
-  : require("./src/dev.config");
+  const productionMode = process.env.NODE_ENV === "production";
+
+  return productionMode
+    ? require("./src/production.config")(outputDirectory)
+    : require("./src/dev.config")(outputDirectory);
+
+}
+
+
