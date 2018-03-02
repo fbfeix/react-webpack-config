@@ -5,7 +5,9 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = function(outputDirectory = "./dist") {
   return {
     entry: {
-      app: "./src/index.js"
+      app: "./src/index.js",
+      vendor: ["lodash", "react", "react-dom"],
+      typekit: [path.resolve(__dirname, "./scripts/typekit.js")]
     },
     devtool: "inline-source-map",
     devServer: {
@@ -14,14 +16,20 @@ module.exports = function(outputDirectory = "./dist") {
     plugins: [
       new CleanWebpackPlugin(["dist"]),
       new HtmlWebpackPlugin({
-        template: require('html-webpack-template'),
+        template: require("html-webpack-template"),
         title: "Development",
         meta: [
           {
-            name: 'viewport',
-            content: 'width=device-width, initial-scale=1.0'
+            name: "viewport",
+            content: "width=device-width, initial-scale=1.0"
           }
         ],
+        inject: false,
+        minify: {
+          html5: true,
+          removeComments: true
+        },
+        scripts: ["https://use.typekit.net/wrk4zti.js"]
       })
     ],
     output: {
