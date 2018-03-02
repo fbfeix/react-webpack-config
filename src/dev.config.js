@@ -43,6 +43,50 @@ module.exports = {
               {loader: 'sass-loader?sourceMap'}
           ]
       },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        query: {
+            name: '[name].min.[ext]?[hash]',
+            outputPath: "fonts/", // path is combined by output.path + fileloader.outputPath
+            publicPath: "/" // + outputPath
+        }
+    },
+    {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
+        query: {
+            name: '[name].min.[ext]?[hash]',
+            outputPath: "fonts/", // path is combined by output.path + fileloader.outputPath
+            publicPath: "/" // + outputPath
+        }
+    },
+    {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader',
+        query: {
+            name: '[name].min.[ext]?[hash]',
+            outputPath: "fonts/", // path is combined by output.path + fileloader.outputPath
+            publicPath: "/" // + outputPath
+        }
+    },
+    {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+        query: {
+            name: '[name].min.[ext]?[hash]',
+            outputPath: "fonts/", // path is combined by output.path + fileloader.outputPath
+            publicPath: "/" // + outputPath
+        }
+    },
+    {
+        test: /\.(jpg|jpeg|png|svg)$/,
+        use: {
+            loader: 'file-loader',
+            query: {
+                useRelativePath: process.env.NODE_ENV === "production",
+                outputPath: "imgs/", // path is combined by output.path + fileloader.outputPath
+                publicPath: "/" // + outputPath
+            }
+        }
+    }
     ]
   }
 };
