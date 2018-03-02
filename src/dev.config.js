@@ -26,6 +26,7 @@ module.exports = function(outputDirectory = "./dist") {
       loaders: [
         {
           test: /\.js$/,
+          exclude: /node_modules\/(?!(@fbfeix)\/).*/,
           loader: "babel-loader"
         },
         {
