@@ -1,6 +1,6 @@
 {
   "name": "@fbfeix/webpack-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Felix Astner",
     "email": "me@felixastner.com",
@@ -15,6 +15,10 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "file-loader": "^1.1.11",
+    "url-loader": "^0.6.2",
     "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.9",
     "empty": "^0.10.1",
@@ -27,6 +31,7 @@
     "react-dom": "^16.2.0",
     "react-test-renderer": "^16.2.0",
     "resolve-url-loader": "^2.2.1",
+    "react-css-modules": "^4.7.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
     "webpack": "^3.11.0",
@@ -34,7 +39,7 @@
   },
   "license": "MIT",
   "repository": {
-      "type": "git",
-      "url": "git@github.com:fbfeix/react-webpack-config.git"
+    "type": "git",
+    "url": "git@github.com:fbfeix/react-webpack-config.git"
   }
 }
